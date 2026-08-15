@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../uiux/DR-ver2.css" />
+    <title>Dice-Rol-2</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Dice-Rol-2</h1>
+      <p class="subtitle">A timeless roll with a classic touch.</p>
+      <label for="dice-number">Number of Dice:</label>
+      <input type="number" id="dice-number" min="1" max="6" value="1" />
+      <button id="roll-button" onclick="rollDice()">Roll Dice</button>
+      <div id="dice-results" aria-live="polite"></div>
+      <div id="dice-photos"></div>
+    </div>
+    <script src="../scr/dice-rol-2.js"></script>
+  </body>
+</html>

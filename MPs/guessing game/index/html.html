@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../uiux/css.css" />
+    <title>the guessing game</title>
+  </head>
+</html>
+<body>
+  <div id="title-b">
+    <h1 class="m-title">the guessing game</h1>
+  </div>
+  <div id="game-in">
+    <h2 class="s-title">Game Instructions:</h2>
+    <p>
+      Welcome to the Guessing Game! In this game, you will try to guess a
+      randomly generated number between 1 and 100. You will have a limited
+      number of attempts to guess the correct number. After each guess, you will
+      receive feedback indicating whether your guess is too high, too low, or
+      correct. Good luck and have fun!
+    </p>
+  </div>
+  <h2 class="s-title">Enter your guess (1-10):</h2>
+  <br />
+  <input
+    type="number"
+    id="guess-input"
+    min="1"
+    max="100"
+    placeholder="1-10"
+  /><br />
+  <button id="submit-button">Submit Guess</button>
+  <p id="message"></p>
+  <script src="../scr/js.js"></script>
+</body>

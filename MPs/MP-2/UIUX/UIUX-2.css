@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 7px;
+  box-sizing: border-box;
+  font-family: "Playfair Display", sans-serif;
+}
+@font-face {
+  font-family: Lavishly Yours;
+  src: url(../fonts/lavishy-y/LavishlyYours-Regular.ttf) format("truetype");
+}
+.container{
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100vw;
+   height: 100vh;
+   background: linear-gradient(90deg,
+    rgb(245, 231, 222),
+    rgb(242, 191, 164),
+    rgb(245, 231, 222));
+}
+.parent{
+    width: 80%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    background-color: #F5E7DE;
+    color: black;
+    box-shadow: -5px 5px 25px #68001f98;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.parent .child nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    height: 15%;
+    background-color: #68001f;
+    border: black solid 2px;
+}
+nav h1{
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 40px;
+    color: black;
+    position: relative; 
+}
+ul li #con{
+    background-image:
+    linear-gradient(180deg,
+    rgb(252, 140, 80),
+    rgb(231, 211, 187),
+    rgb(252, 140, 80));
+    margin: 10px;
+    border: black solid 1px;
+    text-align: center;
+    transition: background-position 1s ease;
+    background-size: 200% 200%;
+}
+ul li #con:hover{
+    background-position: bottom center;
+    transition: 1s ease;
+} 
+nav h1::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+    background:linear-gradient(180deg,
+    rgb(245, 231, 222),
+    rgb(252, 140, 80));
+    border: black solid 1px;
+}
+nav ul{
+    display: flex;
+}
+nav ul li{
+    list-style-type: none;
+}
+nav ul li a{
+    text-decoration: none;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    color: #F5E7DE;
+}
+.main-content{
+    display: flex;
+    height: 90%;
+}
+.main-content .left{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.left h3{
+    font-weight: 600;
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    color: #68001f;
+    
+}
+.left h1{
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 60px;
+    text-transform: uppercase;
+}
+.left h1 span{
+    color: #F2BFA4;
+    font-family: "Lavishly Yours", cursive;
+    text-transform: none;
+}
+.left h2{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 1px;
+    text-decoration: underline;
+    color: #68001f;
+}
+.main-content .right{
+    display: inline-flex;
+    width: 50%;
+    height: 100%;
+}
+
+.main-content .right img{
+    padding: 2px 2px;
+    width: 50%;
+    height: 100%;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer button{
+    text-decoration: none;
+    width: 150px;
+    height: 50px;
+    background-color: #68001f;
+    color: #F5E7DE;
+    border: 2px solid #F2BFA4;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 1s ease;
+}
+.footer button:hover{
+    background-color: #F2BFA4;
+    color: #68001f;
+    border: 2px solid #68001f;
+    box-shadow: -5px 5px 20px #e69468;
+}
+@media (max-width: 768px){
+    .parent{
+        width: 90%;
+        height: 95%;
+    }
+    nav h1{
+        font-size: 24px;
+    }
+    nav ul li a{
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    .main-content{ 
+        flex-direction: column;
+    }
+    .main-content .left, .main-content .right{
+        width: 100%;
+        height: 50%;
+    }
+    .left h1{
+        font-size: 30px;
+        line-height: 40px;
+    }
+}

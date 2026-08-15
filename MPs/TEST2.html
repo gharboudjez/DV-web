@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>things to do</title>
+</head>
+<body>
+<h1>things to do</h1>
+
+<!-- Login Form -->
+<form id="loginForm">
+  <label>Username:</label>
+  <input type="text" id="username" required>
+
+  <br><br>
+
+  <label>Password:</label>
+  <input type="password" id="password" required>
+
+  <br><br>
+
+  <button type="button" onclick="login()">Login</button>
+</form>
+
+<!-- Click me button (hidden at start) -->
+<div id="click"></div>
+
+<!-- Table (hidden at start) -->
+<div id="myTable"></div>
+
+<script>
+  // Fake login function
+  function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Simple check (just for learning)
+    if(user === "zinou" && pass === "1234") {
+      alert("Login successful!");
+      // Show "Click me" button
+      document.getElementById("click").innerHTML = `<button onclick="showTable()" 
+        style="font-size: medium; background-color: aliceblue; 
+        color: rgb(93, 123, 179); border-radius: 15px;">
+        Click me!
+      </button>`;
+      // Hide login form
+      document.getElementById("loginForm").style.display = "none";
+    } else {
+      alert("Wrong username or password!");
+    }
+  }
+
+  // Function to show the table
+  function showTable() {
+    document.getElementById("myTable").innerHTML = `
+      <table border="2">
+          <tr align="center" style="background-color: rgb(93, 123, 179);">
+              <th>my room</th>
+              <th>kitchen</th>
+              <th>toy</th>
+          </tr>
+          <tr align="center" style="background-color: aliceblue;">
+              <td>
+                  <ul>
+                      <li>bed</li>
+                      <li>floor</li>
+                      <li>smell</li>
+                  </ul>
+              </td>
+              <td>
+                  <ol>
+                      <li>bed</li>
+                      <li>floor</li>
+                      <li>smell</li>
+                  </ol>
+              </td>
+              <td>
+                  <ul>
+                      <li>bed</li>
+                      <li>floor</li>
+                      <li>smell</li>
+                  </ul>
+              </td>
+          </tr>
+      </table>
+    `;
+    // Optionally hide the click button after table shows
+    document.getElementById("click").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
