@@ -4,9 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Password Generator</title>
+    <link rel="stylesheet" href="../uiux/RP.css" />
   </head>
   <body>
-    <h1>Random Password Generator</h1>
-    <script src="../scr/RP.js"></script>
+    <main id="container">
+      <div class="intro">
+        <p class="eyebrow">SECURE YOUR NEXT LOGIN</p>
+        <h1>Random Password <span>Generator</span></h1>
+        <p class="subtitle">
+          Build a password that is hard to guess and easy to use.
+        </p>
+      </div>
+      <div id="space1">
+        <fieldset>
+          <legend>Password length</legend>
+          <div class="length-options">
+            <label
+              ><input type="radio" value="8" id="PL8" name="passwordLength" />
+              <span>8</span></label
+            >
+            <label
+              ><input type="radio" value="7" id="PL7" name="passwordLength" />
+              <span>7</span></label
+            >
+            <label
+              ><input type="radio" value="6" id="PL6" name="passwordLength" />
+              <span>6</span></label
+            >
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Character types</legend>
+          <div class="character-options">
+            <label
+              ><input
+                type="checkbox"
+                name="operation"
+                value="uppercase"
+                id="uppercase"
+              />
+              <span>Uppercase letters</span></label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="operation"
+                value="lowercase"
+                id="lowercase"
+              />
+              <span>Lowercase letters</span></label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="operation"
+                value="numbers"
+                id="numbers"
+              />
+              <span>Numbers</span></label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="operation"
+                value="special"
+                id="special"
+              />
+              <span>Special characters</span></label
+            >
+          </div>
+        </fieldset>
+      </div>
+      <div id="space2">
+        <button id="generateBtn" type="button">
+          Generate password <span aria-hidden="true">→</span>
+        </button>
+        <div class="result" aria-label="Generated password">
+          <span class="result-label">Your password</span>
+          <p id="passwordDisplay" aria-live="polite">
+            Choose your options, then generate.
+          </p>
+        </div>
+      </div>
+      <script src="../scr/RP.js"></script>
+    </main>
   </body>
 </html>

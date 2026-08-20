@@ -6,16 +6,14 @@ function generatePassword(length, lowercase, uppercase, numbers, symbols) {
   let characters = "";
   let password = "";
 
-  characters += lowercaseChars ? lowercaseChars : "";
-  characters += uppercaseChars ? uppercaseChars : "";
-  characters += numberChars ? numberChars : "";
-  characters += symbolChars ? symbolChars : "";
+  characters += lowercase ? lowercaseChars : "";
+  characters += uppercase ? uppercaseChars : "";
+  characters += numbers ? numberChars : "";
+  characters += symbols ? symbolChars : "";
 
   if (characters.length === 0) {
-    return "Please select at least one character type.";
-  }
-  if (length < 1 || length > 6) {
-    return "Password length must be between 1 and 6 characters.";
+    passwordDisplay.textContent = "Please select at least one character type.";
+    return;
   }
 
   for (let i = 0; i < length; i++) {
@@ -23,14 +21,30 @@ function generatePassword(length, lowercase, uppercase, numbers, symbols) {
     password += characters[randomIndex];
   }
 
-  return password;
+  passwordDisplay.textContent = password;
 }
+const passwordDisplay = document.getElementById("passwordDisplay");
+const generateButton = document.getElementById("generateBtn");
 
-const Pl = 6;
-const lowercase = true;
-const uppercase = true;
-const numbers = true;
-const symbols = true;
+generateButton.addEventListener("click", () => {
+  const selectedLength = document.querySelector(
+    'input[name="passwordLength"]:checked',
+  );
 
-const password = generatePassword(Pl, lowercase, uppercase, numbers, symbols);
-console.log(password);
+  if (!selectedLength) {
+    passwordDisplay.textContent = "Please select a password length.";
+    return;
+  }
+
+  const selectedOperations = Array.from(
+    document.querySelectorAll('input[name="operation"]:checked'),
+  ).map((operation) => operation.value);
+
+  generatePassword(
+    Number(selectedLength.value),
+    selectedOperations.includes("lowercase"),
+    selectedOperations.includes("uppercase"),
+    selectedOperations.includes("numbers"),
+    selectedOperations.includes("special"),
+  );
+});
