@@ -24,6 +24,7 @@ function generatePassword(length, lowercase, uppercase, numbers, symbols) {
   passwordDisplay.textContent = password;
 }
 const passwordDisplay = document.getElementById("passwordDisplay");
+const passwordStatus = document.getElementById("passwordStatus");
 const generateButton = document.getElementById("generateBtn");
 
 generateButton.addEventListener("click", () => {
@@ -32,7 +33,8 @@ generateButton.addEventListener("click", () => {
   );
 
   if (!selectedLength) {
-    passwordDisplay.textContent = "Please select a password length.";
+    passwordStatus.textContent = "Please select a password length.";
+    passwordDisplay.textContent = "Choose your options, then generate.";
     return;
   }
 
@@ -40,11 +42,16 @@ generateButton.addEventListener("click", () => {
     document.querySelectorAll('input[name="operation"]:checked'),
   ).map((operation) => operation.value);
 
-  generatePassword(
-    Number(selectedLength.value),
-    selectedOperations.includes("lowercase"),
-    selectedOperations.includes("uppercase"),
-    selectedOperations.includes("numbers"),
-    selectedOperations.includes("special"),
-  );
+  passwordStatus.textContent = "Generating...";
+  passwordDisplay.textContent = "Preparing your password...";
+
+  setTimeout(() => {
+    generatePassword(
+      Number(selectedLength.value),
+      selectedOperations.includes("lowercase"),
+      selectedOperations.includes("uppercase"),
+      selectedOperations.includes("numbers"),
+      selectedOperations.includes("special"),
+    );
+  }, 500);
 });

@@ -17,7 +17,7 @@ const min = 1;
 const max = 6;
 let randomNmber;
 
-Mb.onclick = function () {
+Mb.onclick = () => {
   randomNmber = Math.floor(Math.random() * (max - min + 1)) + min;
   console.log(randomNmber);
   Ml.textContent = randomNmber;
@@ -32,7 +32,7 @@ const checkAgeButton = document.getElementById("checkAge");
 const ageResult = document.getElementById("ageResult");
 let userAge;
 
-checkAgeButton.onclick = function () {
+checkAgeButton.onclick = () => {
   userAge = Number(mytext.value);
   if (userAge >= 18) {
     ageResult.textContent = "You can drive.";
@@ -50,7 +50,7 @@ const submitBtn = document.getElementById("submitBtn");
 const subres = document.getElementById("subres");
 const paymen = document.getElementById("paymen");
 
-submitBtn.onclick = function () {
+submitBtn.onclick = () => {
   if (mycheckbox.checked) {
     subres.textContent = "You have accepted the terms and conditions.";
   } else {
@@ -75,7 +75,7 @@ const checkAgeBtn = document.getElementById("checkAgeBtn");
 const gridingstate = document.getElementById("gridingstate");
 let state;
 
-checkAgeBtn.onclick = function () {
+checkAgeBtn.onclick = () => {
   const age = Number(ageInput.value);
   age > 12 ? (state = true) : (state = false);
   gridingstate.textContent = state ? "good evening." : "good morning.";
@@ -87,7 +87,7 @@ const checkAmountBtn = document.getElementById("checkAmountBtn");
 const thedis = document.getElementById("thedis");
 const newamount = document.getElementById("newamount");
 
-checkAmountBtn.onclick = function () {
+checkAmountBtn.onclick = () => {
   amount = Number(amountInput.value);
   amount > 1000
     ? (thedis.textContent = "You are eligible for a discount!")
@@ -171,13 +171,236 @@ const numberinput = document.getElementById("numinput");
 const checkeod = document.getElementById("checkeod");
 const resultm = document.getElementById("resultm");
 
-checkeod.onclick = function () {
+checkeod.onclick = () => {
   const value = Number(numberinput.value);
   resultm.textContent = `The number is ${evorod(value)}.`;
 };
 
-numberinput.addEventListener("keydown", function (event) {
+numberinput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     checkeod.click();
   }
 });
+
+const wordInput = document.getElementById("wordInput");
+const displayWordBtn = document.getElementById("displayWordBtn");
+const displaymessage = document.getElementById("displmessage");
+const displresult = document.getElementById("displresult");
+
+displayWordBtn.onclick = () => {
+  let timer = 3;
+  displaymessage.textContent = `Waiting for ${timer} seconds...`;
+  displresult.textContent = "";
+
+  const countdown = setInterval(() => {
+    timer--;
+
+    if (timer > 0) {
+      displaymessage.textContent = `Waiting for ${timer} seconds...`;
+    } else {
+      clearInterval(countdown);
+      displaymessage.textContent = "done!";
+      displresult.textContent = wordInput.value.toUpperCase();
+    }
+  }, 1000);
+};
+
+const hello = (name, age) => {
+  console.log(`Hello, ${name}!`);
+  console.log(`Your age is ${age}.`);
+};
+
+hello("Zineddine", 20);
+
+const person0 = {
+  firstName: "Zineddine",
+  lastName: "Gharboudje",
+  age: 20,
+  isStudent: true,
+  greet: () => {
+    console.log(`Hello, my name is ${this.firstName} ${this.lastName}.`);
+  },
+  eat: () => {
+    console.log(`${this.firstName} is healthy.`);
+  },
+};
+
+const person1 = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 25,
+  isStudent: false,
+  greet: () => {
+    console.log(`Hey, my name is ${this.firstName} ${this.lastName}.`);
+  },
+  eat: () => {
+    console.log(`${this.firstName} is fastfood.`);
+  },
+};
+console.log(person0.firstName);
+console.log(person1.firstName);
+person0.greet();
+person1.greet();
+person0.eat();
+console.log(person1);
+
+function createPensol(mark, color, price) {
+  this.mark = mark;
+  this.color = color;
+  this.price = price;
+  this.right = () => {
+    console.log(`The ${this.mark} pen is writing.`);
+  };
+}
+const pensol1 = new createPensol("Bic", "blue", 1.5);
+const pensol2 = new createPensol("Faber-Castell", "red", 2.0);
+
+pensol1.right();
+pensol2.right();
+
+class school {
+  static schoolnum = 0;
+  constructor(name, location, stars, tax) {
+    this.name = name;
+    this.location = location;
+    this.stars = stars;
+    this.tax = tax;
+    school.schoolnum++;
+    const totalPrice = () => {
+      return this.tax * 1000;
+    };
+    this.totalPrice = totalPrice();
+  }
+
+  displayInfo() {
+    console.log(
+      `School Name: ${this.name}, Location: ${this.location}, Stars: ${this.stars}, Total Price: $${this.totalPrice.toFixed(2)}`,
+    );
+  }
+}
+
+const school1 = new school("THE FUTURE", "New York", 4, 0.05);
+const school2 = new school("ELEGENCE", "Los Angeles", 5, 0.1);
+
+school1.displayInfo();
+school2.displayInfo();
+console.log(`Total number of schools: ${school.schoolnum}`);
+
+class human {
+  alive = true;
+}
+class man extends human {
+  gender = "male";
+}
+class woman extends human {
+  gender = "female";
+}
+
+console.log(new man());
+console.log(new woman());
+
+class shuman {
+  alive = true;
+  constructor(name, age, isWorking) {
+    this.name = name;
+    this.age = age;
+    this.isWorking = isWorking;
+  }
+  working() {
+    console.log(
+      `${this.name} is ${this.isWorking ? "working" : "not working"}.`,
+    );
+  }
+}
+class shman extends shuman {
+  constructor(name, age, gender) {
+    super(name, age, true);
+    this.mgender = gender;
+  }
+  working() {
+    super.working();
+  }
+}
+class shwoman extends shuman {
+  constructor(name, age, gender) {
+    super(name, age, false);
+    this.fgender = gender;
+  }
+}
+
+const sarah = new shwoman("Sarah", 18, "female");
+const zineddine = new shman("Zineddine", 20, "male");
+
+sarah.working();
+zineddine.working();
+
+class h_w {
+  constructor(name, Height, Weight) {
+    this.name = name;
+    this.Height = Height;
+    this.Weight = Weight;
+  }
+  set name(newname) {
+    if (typeof newname === "string" && newname.trim() !== "") {
+      this._name = newname;
+    }
+  }
+  get name() {
+    return this._name;
+  }
+  set Height(newHigh) {
+    newHigh > 0
+      ? (this._Height = newHigh)
+      : console.log("Invalid height value.");
+  }
+  get Height() {
+    return this._Height;
+  }
+  set Weight(newWeight) {
+    newWeight > 0
+      ? (this._Weight = newWeight)
+      : console.log("Invalid weight value.");
+  }
+  get Weight() {
+    return this._Weight;
+  }
+  get area() {
+    return (this._Height * this._Weight) / 10000;
+  }
+}
+
+const person = new h_w("John Doe", 180, 75);
+console.log(`Name: ${person.name.trim()}
+Height: ${person.Height} cm
+Weight: ${person.Weight} kg
+Area: ${person.area} m²`);
+
+function savegame() {
+  let score = 5;
+
+  function increaseScore(points) {
+    score += points;
+    console.log(`Score: ${score}`);
+  }
+
+  function decreaseScore(points) {
+    score -= points;
+    console.log(`Score: ${score}`);
+  }
+
+  function getScore() {
+    console.log(`Current Score: ${score}`);
+  }
+
+  return {
+    increaseScore,
+    decreaseScore,
+    getScore,
+  };
+}
+
+let player1 = savegame();
+
+player1.increaseScore(10);
+player1.getScore();
+player1.decreaseScore(10);
