@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../uiux/R.P.S.css" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <main id="Game-box">
+      <div class="eyebrow">
+        <span class="status-dot"></span> PLAYER VS COMPUTER
+      </div>
+      <h1>Rock - <span>Paper -</span> Scissors</h1>
+      <p class="subtitle">Make your move. See if you can beat the computer.</p>
+      <div id="bots-box" aria-label="Choose your move">
+        <button class="btn" onclick="play('rock')" aria-label="Choose rock">
+          <span class="move-icon" aria-hidden="true">✊</span>
+          <span class="move-label">Rock <kbd>1</kbd></span>
+        </button>
+        <button class="btn" onclick="play('paper')" aria-label="Choose paper">
+          <span class="move-icon" aria-hidden="true">✋</span>
+          <span class="move-label">Paper <kbd>2</kbd></span>
+        </button>
+        <button
+          class="btn"
+          onclick="play('scissors')"
+          aria-label="Choose scissors"
+        >
+          <span class="move-icon" aria-hidden="true">✌️</span>
+          <span class="move-label">Scissors <kbd>3</kbd></span>
+        </button>
+      </div>
+      <div id="choice-box">
+        <div class="choice-card">
+          <span class="choice-label">YOU</span>
+          <span id="p-choice" class="choice-value">—</span>
+        </div>
+        <span class="versus" aria-hidden="true">VS</span>
+        <div class="choice-card">
+          <span class="choice-label">COMPUTER</span>
+          <span id="c-choice" class="choice-value">—</span>
+        </div>
+      </div>
+      <div id="result-box" class="result-idle">
+        <p id="result" aria-live="polite" aria-atomic="true">
+          Choose a move to start!
+        </p>
+      </div>
+      <section id="score-box" aria-label="Game stats">
+        <div class="stat">
+          <span class="stat-value" id="wins-value">0</span>
+          <span class="stat-label">WINS</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="losses-value">0</span>
+          <span class="stat-label">LOSSES</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="ties-value">0</span>
+          <span class="stat-label">DRAWS</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="streak-value">0</span>
+          <span class="stat-label">WIN STREAK</span>
+        </div>
+      </section>
+      <div class="footer">
+        <span>First to build a streak wins bragging rights.</span>
+        <button id="reset-button" type="button">↻ Reset stats</button>
+      </div>
+    </main>
+    <script src="../src/R.P.S.js"></script>
+  </body>
+</html>
