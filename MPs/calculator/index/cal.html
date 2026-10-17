@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../uiux/cal.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div id="calculator">
+      <div id="display-container">
+        <input type="text" id="display" disabled placeholder="0"></input>
+      </div>
+      <div id="buttons">
+        <div id="operators">
+          <button id="add" onclick="updateDisplay('+')">+</button>
+          <button id="subtract" onclick="updateDisplay('-')">-</button>
+          <button id="multiply" onclick="updateDisplay('*')">*</button>
+          <button id="divide" onclick="updateDisplay('/')">/</button>
+          <button id="clear" onclick="clearDisplay()">C</button>
+          <button id="equals" onclick="calculate()">=</button>
+        </div>
+        <div id="numbers">
+          <button id="btn1" onclick="updateDisplay('1')">1</button>
+          <button id="btn2" onclick="updateDisplay('2')">2</button>
+          <button id="btn3" onclick="updateDisplay('3')">3</button>
+          <button id="btn4" onclick="updateDisplay('4')">4</button>
+          <button id="btn5" onclick="updateDisplay('5')">5</button>
+          <button id="btn6" onclick="updateDisplay('6')">6</button>
+          <button id="btn7" onclick="updateDisplay('7')">7</button>
+          <button id="btn8" onclick="updateDisplay('8')">8</button>
+          <button id="btn9" onclick="updateDisplay('9')">9</button>
+          <button id="btn0" onclick="updateDisplay('0')">0</button>
+        </div>
+      </div>
+    </div>
+    <script src="../scr/cal.js"></script>
+  </body>
+</html>

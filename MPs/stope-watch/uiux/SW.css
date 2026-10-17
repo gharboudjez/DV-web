@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #f4f4f4ea;
+  margin: 0;
+}
+.container {
+  width: min(90%, 460px);
+  text-align: center;
+  align-items: center;
+  padding: 32px 28px;
+  border-radius: 18px;
+  background: hsl(0, 0%, 100%);
+  border: 2px solid hsl(340, 40%, 39%);
+  box-shadow: 0 12px 30px -15px hsla(23, 44%, 20%, 0.795);
+}
+#title {
+  margin: 0 0 8px;
+  font-size: 2.2rem;
+  color: hsl(340, 80%, 16%);
+  letter-spacing: 1px;
+}
+#display {
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 0 0 18px;
+  border: 3.5px solid hsla(342, 100%, 2%, 0.781);
+  border-radius: 10px;
+  color: hsla(0, 0%, 0%, 0.824);
+  font-size: 3em;
+}
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.controls button {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: 12px 8px;
+}
+#start {
+  font-size: 1.1rem;
+  padding: 11px 22px;
+  margin-top: 12px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, hsl(88, 80%, 16%), hsl(340, 40%, 39%));
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  color: hsla(0, 0%, 100%, 0.95);
+  border-radius: 999px;
+  box-shadow: 0 6px 12px hsla(340, 40%, 39%, 0.2);
+}
+#stop {
+  font-size: 1.1rem;
+  padding: 11px 22px;
+  margin-top: 12px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, hsl(0, 94%, 31%), hsl(340, 40%, 39%));
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  color: hsla(0, 0%, 100%, 0.95);
+  border-radius: 999px;
+  box-shadow: 0 6px 12px hsla(340, 40%, 39%, 0.2);
+}
+#reset {
+  font-size: 1.1rem;
+  padding: 11px 22px;
+  margin-top: 12px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, hsl(214, 80%, 16%), hsl(340, 40%, 39%));
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  color: hsla(0, 0%, 100%, 0.95);
+  border-radius: 999px;
+  box-shadow: 0 6px 12px hsla(340, 40%, 39%, 0.2);
+}
+#start,
+#stop,
+#reset {
+  transition:
+    background-position 350ms ease,
+    filter 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+#start:hover,
+#stop:hover,
+#reset:hover {
+  background-position: 100% 50%;
+  filter: brightness(0.82);
+  transform: translateY(-5px);
+  box-shadow: 0 11px 18px hsla(340, 40%, 39%, 0.32);
+}
+#start:active,
+#stop:active,
+#reset:active {
+  transform: translateY(-1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  #start,
+  #stop,
+  #reset {
+    transition: none;
+  }
+}
